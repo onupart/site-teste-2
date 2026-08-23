@@ -9,6 +9,9 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 - interações sem formulários ou coleta de dados pessoais no MVP.
 - `robots.txt` e `X-Robots-Tag` mantendo staging fora de indexação.
 - QA estático automatizado aprovado.
+- QA em Chromium automatizado aprovado em 22 cenários: hub + P01–P10 em desktop e viewport móvel.
+- zero overflow horizontal, zero `pageerror` e zero erro de console no run aprovado de 23/08/2026.
+- screenshots de QA geradas como artefato do GitHub Actions para inspeção visual.
 
 ## Gate B — integridade narrativa
 - cada portal cumpre seu brief canônico sem simplesmente repetir Livro I/Companion;
@@ -20,14 +23,17 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 
 ## Gate C — áudio
 Aplicável somente a P01, P05, P08, P09 e P10.
-- cópia pública própria da faixa presente em `assets/`;
-- identidade conferida contra master privado;
+- cópia web derivada e validada a partir do master privado;
+- cópia pública própria da faixa presente no hosting em `assets/`;
+- identidade, duração, codec e SHA-256 conferidos contra o manifesto de distribuição;
 - reprodução sem login aprovada;
 - master do Drive continua privado;
 - origem de contingência, quando houver, não é destino do QR.
 
-## Gate D — aparelho real
-Testar ao menos:
+Estado em 23/08/2026: as cinco cópias web 128 kbps estão preparadas e validadas; o upload/hosting público ainda está pendente.
+
+## Gate D — aparelho físico
+O QA de Chromium desktop/mobile já foi aprovado, mas não substitui teste em hardware real. Testar ao menos:
 - Android/Chrome;
 - iPhone/Safari;
 - desktop Chrome/Edge ou Safari;
