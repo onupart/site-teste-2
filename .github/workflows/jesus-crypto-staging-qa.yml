@@ -21,3 +21,7 @@ jobs:
           node-version: '22'
       - name: Run P01-P10 static QA
         run: node scripts/qa-portals.mjs
+      - name: Build release manifest dry-run
+        run: |
+          node scripts/build-release-manifest.mjs > /tmp/jesus-crypto-release-manifest.json
+          node -e "const m=require('/tmp/jesus-crypto-release-manifest.json'); if(Object.keys(m.files).length<15) process.exit(1); console.log('Release manifest inputs:',Object.keys(m.files).length)"
