@@ -1,0 +1,23 @@
+name: Jesus Crypto Staging QA
+
+on:
+  push:
+    branches: [jesus-crypto-p01-staging]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  qa-portals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run P01-P10 static QA
+        run: node scripts/qa-portals.mjs
