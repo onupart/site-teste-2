@@ -13,8 +13,11 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 - matriz final: 66 renderizações/interações aprovadas — 33 Chromium + 33 WebKit.
 - zero overflow horizontal, zero `pageerror` e zero erro de console na matriz final de 23/08/2026.
 - a primeira execução WebKit detectou overflow tipográfico nos H1 de P02, P04 e P05 em 390/320 px; os três títulos foram corrigidos sem alteração narrativa ou funcional e a matriz completa passou na repetição.
-- screenshots das 66 renderizações geradas como artefatos do GitHub Actions; amostragem visual das telas críticas P02/P04/P05 em 320/390 px conferida após a correção.
-- manifesto SHA-256 de release inclui 28 inputs críticos: hub, 10 HTMLs, 10 manifests individuais, registry, documentos de governança, manifesto de áudio, `robots.txt` e `vercel.json`.
+- o primeiro gate Axe/WCAG detectou uma única causa séria: contraste do botão ativo da linha temporal de P08. O texto foi alterado de branco para quase-preto, elevando o contraste sobre o vermelho canônico de 3,33:1 para 5,68:1.
+- repetição final Axe/WCAG 2.0/2.1 A/AA: **0 violações serious/critical em 33 cenários Chromium e 0 em 33 WebKit**.
+- screenshots e relatórios das 66 renderizações são gerados como artefatos do GitHub Actions.
+- manifesto SHA-256 de release inclui os inputs críticos do hub, 10 HTMLs, 10 manifests individuais, registry, documentos de governança, manifesto de áudio, `robots.txt` e `vercel.json`.
+- Vercel reporta `success` para o head técnico validado.
 
 ## Gate B — integridade narrativa
 - conferência de consistência canônica e editorial automatizável executada sobre P01–P10;
@@ -28,16 +31,18 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 ## Gate C — áudio
 Aplicável somente a P01, P05, P08, P09 e P10.
 - cópia web derivada e validada a partir do master privado;
-- cópia pública própria da faixa presente no hosting em `assets/`;
-- identidade, duração, codec e SHA-256 conferidos contra o manifesto de distribuição;
-- reprodução sem login aprovada;
+- as cinco derivações web e seu manifesto estão arquivados de forma privada em `04_EXPORTS_PUBLICACAO`, separados dos masters;
+- S09 e S10 tiveram os UUIDs de origem Suno recuperados diretamente dos metadados ID3 dos masters, sem substituição por aproximação de título;
+- cópia pública própria da faixa ainda precisa estar presente no hosting em `assets/`;
+- identidade, duração, codec e SHA-256 devem ser conferidos contra o manifesto de distribuição após o hosting;
+- reprodução sem login ainda precisa ser aprovada;
 - master do Drive continua privado;
 - origem de contingência, quando houver, não é destino do QR.
 
-Estado em 23/08/2026: as cinco cópias web 128 kbps estão preparadas, validadas, hashadas e arquivadas em pacote operacional privado no Drive; o upload/hosting público ainda está pendente.
+Estado em 23/08/2026: as cinco cópias web 128 kbps estão preparadas, validadas, hashadas e arquivadas de forma privada; o upload/hosting público ainda está pendente. Portanto `public_asset_ready` continua `false`.
 
 ## Gate D — aparelho físico
-O QA automatizado Chromium/WebKit em desktop, 390 px e 320 px foi aprovado, mas não substitui teste em hardware real. Testar ao menos:
+O QA automatizado Chromium/WebKit + Axe em desktop, 390 px e 320 px foi aprovado, mas não substitui teste em hardware real. Testar ao menos:
 - Android/Chrome;
 - iPhone/Safari;
 - desktop Chrome/Edge ou Safari;
