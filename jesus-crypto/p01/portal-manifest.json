@@ -1,0 +1,28 @@
+{
+  "project": "Universo Jesus Crypto",
+  "portal": "P01",
+  "title": "Quem o sistema vê?",
+  "version": "staging-v04",
+  "status": "teste",
+  "updated": "2026-08-23",
+  "route": "/jesus-crypto/p01/",
+  "audio": {
+    "code": "S01",
+    "title": "Ranking Não Mede Sangue",
+    "expected_public_asset": "assets/s01-ranking-nao-mede-sangue.mp3",
+    "public_asset_ready": false,
+    "fallback_origin": "https://suno.com/song/7bc96879-7be3-49c4-9fb3-a9d78cf58829"
+  },
+  "privacy": {
+    "personal_data_collection": false,
+    "cookies": false,
+    "analytics": false,
+    "staging_noindex": true
+  },
+  "qr": {
+    "test_qr_exists": true,
+    "editorial_qr_ready": false,
+    "final_target_must_be_portal": true
+  },
+  "publication_gate": "blocked_on_public_S01_real-device_QA_and_final_URL_freeze"
+}
