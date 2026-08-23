@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { chromium, webkit } from 'playwright';
+import AxeBuilder from '@axe-core/playwright';
 
 const root = process.cwd();
 const browserName = (process.env.JC_BROWSER || 'chromium').toLowerCase();
@@ -47,6 +48,7 @@ const devices = [
 const browser = await browserType.launch({ headless: true });
 const failures = [];
 const report = [];
+let axeSeriousCritical = 0;
 
 for (const device of devices) {
   for (const route of routes) {
@@ -73,6 +75,16 @@ for (const device of devices) {
       const overflow = await page.evaluate(() => Math.max(0, document.documentElement.scrollWidth - window.innerWidth));
       if (overflow > 2) failures.push(`${slug}/${device.name}: horizontal overflow ${overflow}px`);
 
+      const axe = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+      const axeBlocking = axe.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
+      axeSeriousCritical += axeBlocking.length;
+      for (const violation of axeBlocking) {
+        const targets = violation.nodes.slice(0, 4).flatMap(n => n.target).join(' | ');
+        failures.push(`${slug}/${device.name}: axe ${violation.impact} ${violation.id} — ${violation.help}; targets: ${targets}`);
+      }
+
       const buttons = page.locator('button:visible');
       if (await buttons.count()) {
         const first = buttons.first();
@@ -88,7 +100,15 @@ for (const device of devices) {
       await page.screenshot({ path: path.join(outDir, `${slug}-${device.name}.png`), fullPage: true });
       if (pageErrors.length) failures.push(`${slug}/${device.name}: pageerror ${pageErrors.join(' | ')}`);
       if (consoleErrors.length) failures.push(`${slug}/${device.name}: console error ${consoleErrors.join(' | ')}`);
-      report.push({ browser: browserName, route, device: device.name, title, h1Count, overflow, pageErrors, consoleErrors });
+      report.push({
+        browser: browserName, route, device: device.name, title, h1Count, overflow,
+        pageErrors, consoleErrors,
+        axe: {
+          violationCount: axe.violations.length,
+          seriousCriticalCount: axeBlocking.length,
+          seriousCritical: axeBlocking.map(v => ({ id: v.id, impact: v.impact, help: v.help, nodes: v.nodes.map(n => n.target) }))
+        }
+      });
     } catch (e) {
       failures.push(`${slug}/${device.name}: ${e.message}`);
     } finally {
@@ -99,13 +119,14 @@ for (const device of devices) {
 
 await browser.close();
 server.close();
-fs.writeFileSync(path.join(outDir, 'browser-qa-report.json'), JSON.stringify({ browser: browserName, generated_at: new Date().toISOString(), report, failures }, null, 2));
+fs.writeFileSync(path.join(outDir, 'browser-qa-report.json'), JSON.stringify({ browser: browserName, generated_at: new Date().toISOString(), report, axeSeriousCritical, failures }, null, 2));
 
 console.log(`${browserName} QA pages checked: ${report.length}`);
 console.log(`${browserName} screenshots generated: ${report.length}`);
+console.log(`${browserName} axe serious/critical violations: ${axeSeriousCritical}`);
 if (failures.length) {
   console.error(`${browserName} QA failures: ${failures.length}`);
   for (const f of failures) console.error(`ERR ${f}`);
   process.exit(1);
 }
-console.log(`PASS — ${browserName} desktop/mobile staging QA`);
+console.log(`PASS — ${browserName} desktop/mobile staging QA + WCAG axe gate`);
