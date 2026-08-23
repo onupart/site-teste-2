@@ -17,12 +17,13 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 - manifesto SHA-256 de release inclui 28 inputs críticos: hub, 10 HTMLs, 10 manifests individuais, registry, documentos de governança, manifesto de áudio, `robots.txt` e `vercel.json`.
 
 ## Gate B — integridade narrativa
+- conferência de consistência canônica e editorial automatizável executada sobre P01–P10;
 - cada portal cumpre seu brief canônico sem simplesmente repetir Livro I/Companion;
 - P06 não ranqueia pessoas;
 - P07 explicita cartografia conceitual e não apresenta rotas/minas/conflitos como dados reais;
 - P09 trabalha apenas com teses/dossiê ficcionais e não solicita voto político real;
 - P10 preserva “A cidade continuou existindo sem pedir permissão ao mapa.” e não usa a abertura reservada do Livro II;
-- revisão editorial humana final aprovada.
+- revisão editorial humana final **ainda pendente**; este gate não deve ser considerado fechado antes dessa aprovação.
 
 ## Gate C — áudio
 Aplicável somente a P01, P05, P08, P09 e P10.
