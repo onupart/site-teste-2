@@ -10,13 +10,13 @@ O QR editorial aponta sempre para o portal, nunca diretamente para MP3, Google D
 
 As cinco cópias web foram derivadas dos masters canônicos em 23/08/2026, com os masters preservados. Padrão técnico da derivação: MP3 CBR 128 kbps, 48 kHz, estéreo, sem capa embutida. Todas foram decodificadas integralmente com FFmpeg sem erro e tiveram duração conferida contra o master.
 
-| Ponte | Master canônico | Arquivo público esperado no portal | Origem pública de contingência verificada | Estado atual |
+| Ponte | Master canônico | Arquivo público esperado no portal | Origem de contingência / identidade | Estado atual |
 |---|---|---|---|---|
-| P01 ↔ S01 | S01 — Ranking Não Mede Sangue.mp3 | `p01/assets/s01-ranking-nao-mede-sangue.mp3` | `https://suno.com/song/7bc96879-7be3-49c4-9fb3-a9d78cf58829` | cópia web preparada; hosting pendente |
-| P05 ↔ S02 | S02 — Sistema não responde... Consciência.mp3 | `p05/assets/s02-sistema-nao-responde-consciencia.mp3` | `https://suno.com/song/807decda-1e91-4c4e-8a53-7ce9f036c3e4` | cópia web preparada; hosting pendente |
-| P08 ↔ S04 | S04 — Respirar.mp3 | `p08/assets/s04-respirar.mp3` | `https://suno.com/song/c536282d-0cc5-409a-92d3-ef2d367333f4` | cópia web preparada; hosting pendente |
-| P09 ↔ S09 | S09 — #Movimento.mp3 | `p09/assets/s09-movimento.mp3` | não verificada | cópia web preparada; hosting pendente |
-| P10 ↔ S10 | S10 — Pela Frente.mp3 | `p10/assets/s10-pela-frente.mp3` | não verificada | cópia web preparada; hosting pendente |
+| P01 ↔ S01 | S01 — Ranking Não Mede Sangue.mp3 | `p01/assets/s01-ranking-nao-mede-sangue.mp3` | `https://suno.com/song/7bc96879-7be3-49c4-9fb3-a9d78cf58829` · pública verificada | cópia web preparada; hosting pendente |
+| P05 ↔ S02 | S02 — Sistema não responde... Consciência.mp3 | `p05/assets/s02-sistema-nao-responde-consciencia.mp3` | `https://suno.com/song/807decda-1e91-4c4e-8a53-7ce9f036c3e4` · pública verificada | cópia web preparada; hosting pendente |
+| P08 ↔ S04 | S04 — Respirar.mp3 | `p08/assets/s04-respirar.mp3` | `https://suno.com/song/c536282d-0cc5-409a-92d3-ef2d367333f4` · pública verificada | cópia web preparada; hosting pendente |
+| P09 ↔ S09 | S09 — #Movimento.mp3 | `p09/assets/s09-movimento.mp3` | UUID Suno recuperado do ID3: `71d4d368-682c-4446-8e48-ed48e4f616da`; disponibilidade pública ainda não verificada | cópia web preparada; hosting pendente |
+| P10 ↔ S10 | S10 — Pela Frente.mp3 | `p10/assets/s10-pela-frente.mp3` | UUID Suno recuperado do ID3: `543e94eb-ca72-4501-aae1-5d247973cbf9`; disponibilidade pública ainda não verificada | cópia web preparada; hosting pendente |
 
 ## Integridade das cópias web
 
@@ -32,8 +32,9 @@ O mesmo conjunto está registrado de forma máquina-legível em `AUDIO-WEB-MANIF
 
 ## Controle de identidade
 
-- `Moviment'Ação`, encontrada em catálogo de playlist, **não deve ser tratada como S09** sem decisão/correspondência documental explícita. O master canônico é `S09 — #Movimento.mp3`.
-- Para S10, nenhuma página pública de origem foi confirmada na auditoria atual. O master canônico é `S10 — Pela Frente.mp3`.
+- `Moviment'Ação`, encontrada em catálogo da playlist 66359882, **não é S09**: possui outro UUID e duração. O master S09 traz no próprio ID3 `title=#Movimento`, `artist=contatodanielgodoy` e `id=71d4d368-682c-4446-8e48-ed48e4f616da`.
+- O master S10 traz no próprio ID3 `title=Pela Frente`, `artist=contatodanielgodoy` e `id=543e94eb-ca72-4501-aae1-5d247973cbf9`.
+- Os UUIDs S09/S10 identificam a criação de origem, mas não devem ser tratados como fallback público enquanto a página/reprodução sem login não for verificada.
 - Fallback Suno é apenas contingência de staging e não substitui a cópia pública própria do portal.
 - O estado `cópia web preparada` não equivale a `public_asset_ready=true`; esse estado só muda depois do upload e teste de reprodução no hosting público.
 
