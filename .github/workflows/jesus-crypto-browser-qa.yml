@@ -11,8 +11,8 @@ permissions:
 
 jobs:
   browser-qa:
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -24,15 +24,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install Playwright
+      - name: Install Playwright and Axe
         run: |
-          npm install --no-save playwright
+          npm install --no-save playwright @axe-core/playwright
           npx playwright install --with-deps ${{ matrix.browser }}
-      - name: Run browser desktop/mobile QA
+      - name: Run browser, responsive and WCAG QA
         env:
           JC_BROWSER: ${{ matrix.browser }}
         run: node scripts/browser-qa.mjs
-      - name: Upload QA screenshots
+      - name: Upload QA screenshots and reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
