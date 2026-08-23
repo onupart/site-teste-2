@@ -1,0 +1,12 @@
+{
+  "code":"P06",
+  "title":"Saber que se espalha",
+  "version":"staging-v01",
+  "status":"teste",
+  "route":"/jesus-crypto/p06/",
+  "canonical_rule":"não transformar a rede em ranking de pessoas",
+  "audio":{"external_dependency":false},
+  "privacy":{"personal_data":false,"analytics":false,"login":false},
+  "publication":{"indexing":"blocked","url_frozen":false,"qr_editorial":false},
+  "blockers":["QA em aparelho real","revisão editorial","URL pública permanente"]
+}

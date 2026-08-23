@@ -1,0 +1,15 @@
+{
+  "project":"Universo Jesus Crypto",
+  "portal":"P05",
+  "title":"Os não reconhecidos",
+  "version":"staging-v01",
+  "status":"teste",
+  "updated":"2026-08-23",
+  "route":"/jesus-crypto/p05/",
+  "canonical_brief":"PORTAIS P02–P10 — BRIEFS DE PRODUÇÃO v01",
+  "function":"aprofundar presença sem identidade civil/administrativa",
+  "mvp":["arquivo de casos ficcionais anonimizados","mapa conceitual de imóveis vazios habitados","player S02"],
+  "audio":{"code":"S02","title":"Sistema não responde... Consciência","master_drive_id":"1sm4UUSF6GEVM90webOPIct7_kiSWh1nL","master_public":false,"expected_public_asset":"assets/s02-sistema-nao-responde-consciencia.mp3","fallback_origin":"https://suno.com/song/807decda-1e91-4c4e-8a53-7ce9f036c3e4"},
+  "privacy":{"personal_data_collection":false,"cookies":false,"analytics":false,"fictional_cases_only":true,"staging_noindex":true},
+  "qr":{"editorial_qr_ready":false,"stable_url_required":true}
+}

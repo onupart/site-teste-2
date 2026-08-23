@@ -1,0 +1,42 @@
+name: Jesus Crypto Browser QA
+
+on:
+  push:
+    branches: [jesus-crypto-p01-staging]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright and Axe
+        run: |
+          npm install --no-save playwright @axe-core/playwright
+          npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Run browser, responsive and WCAG QA
+        env:
+          JC_BROWSER: ${{ matrix.browser }}
+        run: node scripts/browser-qa.mjs
+      - name: Upload QA screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jesus-crypto-${{ matrix.browser }}-qa-screenshots
+          path: qa-screenshots-${{ matrix.browser }}
+          if-no-files-found: warn
+          retention-days: 14

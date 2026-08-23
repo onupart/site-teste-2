@@ -1,0 +1,36 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {"key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive"},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()"}
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/jesus-crypto/p01/assets/s01-ranking-nao-mede-sangue.mp3",
+      "destination": "https://cdn1.suno.ai/7bc96879-7be3-49c4-9fb3-a9d78cf58829.mp3"
+    },
+    {
+      "source": "/jesus-crypto/p05/assets/s02-sistema-nao-responde-consciencia.mp3",
+      "destination": "https://cdn1.suno.ai/807decda-1e91-4c4e-8a53-7ce9f036c3e4.mp3"
+    },
+    {
+      "source": "/jesus-crypto/p08/assets/s04-respirar.mp3",
+      "destination": "https://cdn1.suno.ai/c536282d-0cc5-409a-92d3-ef2d367333f4.mp3"
+    },
+    {
+      "source": "/jesus-crypto/p09/assets/s09-movimento.mp3",
+      "destination": "https://cdn1.suno.ai/71d4d368-682c-4446-8e48-ed48e4f616da.mp3"
+    },
+    {
+      "source": "/jesus-crypto/p10/assets/s10-pela-frente.mp3",
+      "destination": "https://cdn1.suno.ai/543e94eb-ca72-4501-aae1-5d247973cbf9.mp3"
+    }
+  ]
+}

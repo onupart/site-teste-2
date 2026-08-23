@@ -1,0 +1,12 @@
+{
+  "code":"P10",
+  "title":"Os vivos",
+  "version":"staging-v01",
+  "status":"teste",
+  "route":"/jesus-crypto/p10/",
+  "canonical_rule":"preservar a frase final do Livro I e não antecipar a abertura reservada do Livro II",
+  "audio":{"code":"S10","title":"Pela Frente","public_asset":"assets/s10-pela-frente.mp3","public_ready":false,"public_origin_verified":false},
+  "privacy":{"personal_data":false,"analytics":false,"login":false},
+  "publication":{"indexing":"blocked","url_frozen":false,"qr_editorial":false},
+  "blockers":["cópia pública S10","QA em aparelho real","revisão editorial","URL pública permanente"]
+}

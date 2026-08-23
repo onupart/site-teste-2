@@ -1,0 +1,15 @@
+{
+  "project":"Universo Jesus Crypto",
+  "portal":"P08",
+  "title":"Onze minutos",
+  "version":"staging-v01",
+  "status":"teste",
+  "updated":"2026-08-23",
+  "route":"/jesus-crypto/p08/",
+  "canonical_brief":"PORTAIS P02–P10 — BRIEFS DE PRODUÇÃO v01",
+  "function":"produzir experiência temporal de crise/corpo sem exigir espera real",
+  "mvp":["linha de tempo condensada","documento de decisão","player S04"],
+  "audio":{"code":"S04","title":"Respirar","master_drive_id":"1GqxE6NmPybkcSD8jK348KcS8b2lGgeTo","master_public":false,"expected_public_asset":"assets/s04-respirar.mp3"},
+  "privacy":{"personal_data_collection":false,"cookies":false,"analytics":false,"staging_noindex":true},
+  "qr":{"editorial_qr_ready":false,"stable_url_required":true}
+}
