@@ -13,7 +13,8 @@
       "sha256": "88e2f63dc6455bcdab2a7d0023e5711afb461aa2387f792a5a84caf5e9593dbc",
       "source_platform": "suno",
       "source_id": "7bc96879-7be3-49c4-9fb3-a9d78cf58829",
-      "source_public_verified": true
+      "source_public_verified": true,
+      "private_staging_copy_drive_id": "1jVfRORD5hbzE3OL_FlkpgX3L_DVmFy-b"
     },
     {
       "bridge": "P05-S02",
@@ -23,7 +24,8 @@
       "sha256": "9aea3350711e1b8dfa88443ae43332ee6d5eb8b989e5e5dcd3ce070ea8dbc8c1",
       "source_platform": "suno",
       "source_id": "807decda-1e91-4c4e-8a53-7ce9f036c3e4",
-      "source_public_verified": true
+      "source_public_verified": true,
+      "private_staging_copy_drive_id": "1xAanVLjbIr340h7P8OaCxeOLQgRSfH6O"
     },
     {
       "bridge": "P08-S04",
@@ -33,7 +35,8 @@
       "sha256": "2d2fa71d83105660771c08efc213424b8e7a88975837cff629f6788279e09596",
       "source_platform": "suno",
       "source_id": "c536282d-0cc5-409a-92d3-ef2d367333f4",
-      "source_public_verified": true
+      "source_public_verified": true,
+      "private_staging_copy_drive_id": "1g1wLxuKUlilJtUr5HvxdkkgsNnDjWzni"
     },
     {
       "bridge": "P09-S09",
@@ -44,7 +47,8 @@
       "source_platform": "suno",
       "source_id": "71d4d368-682c-4446-8e48-ed48e4f616da",
       "source_identity_basis": "embedded_id3_comment",
-      "source_public_verified": false
+      "source_public_verified": false,
+      "private_staging_copy_drive_id": "1GYpYMd84ZSChgpvpHUgrFVQDNNliPBGj"
     },
     {
       "bridge": "P10-S10",
@@ -55,9 +59,19 @@
       "source_platform": "suno",
       "source_id": "543e94eb-ca72-4501-aae1-5d247973cbf9",
       "source_identity_basis": "embedded_id3_comment",
-      "source_public_verified": false
+      "source_public_verified": false,
+      "private_staging_copy_drive_id": "1QWrM4bPtEQCFRZJUlgIaNv4xi1yKwmEg"
     }
   ],
-  "hosting_gate": "pending_vercel_or_equivalent_public_asset_hosting",
+  "staging_proxy": {
+    "configured": true,
+    "commit": "485b60cb17e381fd5aac52c5b94f2fe1d13f4a9f",
+    "deployment_state": "READY",
+    "mechanism": "vercel_external_rewrite_to_suno_cdn_contingency",
+    "end_to_end_playback_verified": false,
+    "verification_blocker": "preview requires Vercel authenticated session; available audit fetch returned SSO redirect before asset response",
+    "release_eligible": false
+  },
+  "hosting_gate": "pending_independent_public_distribution_hosting_and_no_login_playback_validation",
   "public_asset_ready": false
 }
