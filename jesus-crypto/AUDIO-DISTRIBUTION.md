@@ -12,11 +12,11 @@ As cinco cópias web foram derivadas dos masters canônicos em 23/08/2026, com o
 
 | Ponte | Master canônico | Arquivo público esperado no portal | Origem de contingência / identidade | Estado atual |
 |---|---|---|---|---|
-| P01 ↔ S01 | S01 — Ranking Não Mede Sangue.mp3 | `p01/assets/s01-ranking-nao-mede-sangue.mp3` | `https://suno.com/song/7bc96879-7be3-49c4-9fb3-a9d78cf58829` · pública verificada | cópia web preparada; hosting pendente |
-| P05 ↔ S02 | S02 — Sistema não responde... Consciência.mp3 | `p05/assets/s02-sistema-nao-responde-consciencia.mp3` | `https://suno.com/song/807decda-1e91-4c4e-8a53-7ce9f036c3e4` · pública verificada | cópia web preparada; hosting pendente |
-| P08 ↔ S04 | S04 — Respirar.mp3 | `p08/assets/s04-respirar.mp3` | `https://suno.com/song/c536282d-0cc5-409a-92d3-ef2d367333f4` · pública verificada | cópia web preparada; hosting pendente |
-| P09 ↔ S09 | S09 — #Movimento.mp3 | `p09/assets/s09-movimento.mp3` | UUID Suno recuperado do ID3: `71d4d368-682c-4446-8e48-ed48e4f616da`; disponibilidade pública ainda não verificada | cópia web preparada; hosting pendente |
-| P10 ↔ S10 | S10 — Pela Frente.mp3 | `p10/assets/s10-pela-frente.mp3` | UUID Suno recuperado do ID3: `543e94eb-ca72-4501-aae1-5d247973cbf9`; disponibilidade pública ainda não verificada | cópia web preparada; hosting pendente |
+| P01 ↔ S01 | S01 — Ranking Não Mede Sangue.mp3 | `p01/assets/s01-ranking-nao-mede-sangue.mp3` | `https://suno.com/song/7bc96879-7be3-49c4-9fb3-a9d78cf58829` · pública verificada | cópia web preparada; proxy de staging configurado; hosting próprio pendente |
+| P05 ↔ S02 | S02 — Sistema não responde... Consciência.mp3 | `p05/assets/s02-sistema-nao-responde-consciencia.mp3` | `https://suno.com/song/807decda-1e91-4c4e-8a53-7ce9f036c3e4` · pública verificada | cópia web preparada; proxy de staging configurado; hosting próprio pendente |
+| P08 ↔ S04 | S04 — Respirar.mp3 | `p08/assets/s04-respirar.mp3` | `https://suno.com/song/c536282d-0cc5-409a-92d3-ef2d367333f4` · pública verificada | cópia web preparada; proxy de staging configurado; hosting próprio pendente |
+| P09 ↔ S09 | S09 — #Movimento.mp3 | `p09/assets/s09-movimento.mp3` | UUID Suno recuperado do ID3: `71d4d368-682c-4446-8e48-ed48e4f616da`; disponibilidade pública de página ainda não verificada | cópia web preparada; proxy de staging configurado; hosting próprio pendente |
+| P10 ↔ S10 | S10 — Pela Frente.mp3 | `p10/assets/s10-pela-frente.mp3` | UUID Suno recuperado do ID3: `543e94eb-ca72-4501-aae1-5d247973cbf9`; disponibilidade pública de página ainda não verificada | cópia web preparada; proxy de staging configurado; hosting próprio pendente |
 
 ## Integridade das cópias web
 
@@ -29,6 +29,23 @@ As cinco cópias web foram derivadas dos masters canônicos em 23/08/2026, com o
 | `s10-pela-frente.mp3` | 283.320 s | 4.533.604 | `8c76a3ffbfeff2612417eb52ca02d082441ecb2ffa103b7eef505f91083bdbc5` |
 
 O mesmo conjunto está registrado de forma máquina-legível em `AUDIO-WEB-MANIFEST.json`.
+
+## Cópias privadas de staging
+
+Além do pacote privado arquivado, as cinco derivações foram enviadas individualmente para a pasta privada `05_PORTAIS`, sem alterar os masters. IDs de controle: S01 `1jVfRORD5hbzE3OL_FlkpgX3L_DVmFy-b`; S02 `1xAanVLjbIr340h7P8OaCxeOLQgRSfH6O`; S04 `1g1wLxuKUlilJtUr5HvxdkkgsNnDjWzni`; S09 `1GYpYMd84ZSChgpvpHUgrFVQDNNliPBGj`; S10 `1QWrM4bPtEQCFRZJUlgIaNv4xi1yKwmEg`. Essas cópias continuam privadas e **não** são destinos públicos nem de QR.
+
+## Proxy de contingência no staging
+
+No commit `485b60cb17e381fd5aac52c5b94f2fe1d13f4a9f`, `vercel.json` passou a manter as cinco URLs locais estáveis dos players e reescrevê-las, somente no ambiente atual de staging, para origens CDN Suno construídas a partir dos UUIDs canônicos/recuperados. O deployment correspondente chegou ao estado `READY`.
+
+Este mecanismo é deliberadamente provisório:
+
+- não publica nem expõe os masters privados;
+- não transforma Suno em destino editorial do QR;
+- não substitui as cópias web 128 kbps derivadas e hashadas;
+- não autoriza `public_asset_ready=true`;
+- não autoriza merge, remoção de `noindex` ou freeze de URL;
+- o preview está protegido pela autenticação da Vercel e a ferramenta de auditoria disponível não conseguiu completar uma validação ponta a ponta do MP3 através do proxy sem sessão. Portanto o estado correto é **proxy configurado / playback público ainda não aprovado**.
 
 ## Controle de identidade
 
