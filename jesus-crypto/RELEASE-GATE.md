@@ -9,9 +9,12 @@ Ambiente atual: **STAGING**. Nenhum item abaixo autoriza merge automático ou im
 - interações sem formulários ou coleta de dados pessoais no MVP.
 - `robots.txt` e `X-Robots-Tag` mantendo staging fora de indexação.
 - QA estático automatizado aprovado.
-- QA em Chromium automatizado aprovado em 22 cenários: hub + P01–P10 em desktop e viewport móvel.
-- zero overflow horizontal, zero `pageerror` e zero erro de console no run aprovado de 23/08/2026.
-- screenshots de QA geradas como artefato do GitHub Actions para inspeção visual.
+- QA cross-browser automatizado aprovado em Chromium e WebKit: hub + P01–P10 em desktop 1440×900, mobile 390×844 e mobile 320×740.
+- matriz final: 66 renderizações/interações aprovadas — 33 Chromium + 33 WebKit.
+- zero overflow horizontal, zero `pageerror` e zero erro de console na matriz final de 23/08/2026.
+- a primeira execução WebKit detectou overflow tipográfico nos H1 de P02, P04 e P05 em 390/320 px; os três títulos foram corrigidos sem alteração narrativa ou funcional e a matriz completa passou na repetição.
+- screenshots das 66 renderizações geradas como artefatos do GitHub Actions; amostragem visual das telas críticas P02/P04/P05 em 320/390 px conferida após a correção.
+- manifesto SHA-256 de release inclui 28 inputs críticos: hub, 10 HTMLs, 10 manifests individuais, registry, documentos de governança, manifesto de áudio, `robots.txt` e `vercel.json`.
 
 ## Gate B — integridade narrativa
 - cada portal cumpre seu brief canônico sem simplesmente repetir Livro I/Companion;
@@ -30,10 +33,10 @@ Aplicável somente a P01, P05, P08, P09 e P10.
 - master do Drive continua privado;
 - origem de contingência, quando houver, não é destino do QR.
 
-Estado em 23/08/2026: as cinco cópias web 128 kbps estão preparadas e validadas; o upload/hosting público ainda está pendente.
+Estado em 23/08/2026: as cinco cópias web 128 kbps estão preparadas, validadas, hashadas e arquivadas em pacote operacional privado no Drive; o upload/hosting público ainda está pendente.
 
 ## Gate D — aparelho físico
-O QA de Chromium desktop/mobile já foi aprovado, mas não substitui teste em hardware real. Testar ao menos:
+O QA automatizado Chromium/WebKit em desktop, 390 px e 320 px foi aprovado, mas não substitui teste em hardware real. Testar ao menos:
 - Android/Chrome;
 - iPhone/Safari;
 - desktop Chrome/Edge ou Safari;
