@@ -3,13 +3,16 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 
 const root=process.cwd();
+const portals=Array.from({length:10},(_,i)=>`p${String(i+1).padStart(2,'0')}`);
 const files=[
   'index.html',
-  ...Array.from({length:10},(_,i)=>`jesus-crypto/p${String(i+1).padStart(2,'0')}/index.html`),
+  ...portals.map(p=>`jesus-crypto/${p}/index.html`),
+  ...portals.map(p=>`jesus-crypto/${p}/portal-manifest.json`),
   'jesus-crypto/portal-registry.json',
   'jesus-crypto/QA-MATRIX.md',
   'jesus-crypto/RELEASE-GATE.md',
   'jesus-crypto/AUDIO-DISTRIBUTION.md',
+  'jesus-crypto/AUDIO-WEB-MANIFEST.json',
   'robots.txt','vercel.json'
 ];
 
