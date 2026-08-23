@@ -1,0 +1,16 @@
+{
+  "project": "Universo Jesus Crypto",
+  "portal": "P03",
+  "title": "Água que chegou tarde",
+  "version": "staging-v01",
+  "status": "teste",
+  "updated": "2026-08-23",
+  "route": "/jesus-crypto/p03/",
+  "canonical_brief": "PORTAIS P02–P10 — BRIEFS DE PRODUÇÃO v01",
+  "function": "territorializar a promessa tecnológica por meio da crise hídrica e da Ilha/Nova Lagoa",
+  "mvp": ["mapa temporal antes/depois", "poço interditado", "dessalinização", "microtexto sobre valorização territorial"],
+  "interaction": "alternar quando a necessidade apareceu / quando a infraestrutura chegou",
+  "audio_required": false,
+  "privacy": {"personal_data_collection": false, "cookies": false, "analytics": false, "staging_noindex": true},
+  "qr": {"editorial_qr_ready": false, "stable_url_required": true}
+}
