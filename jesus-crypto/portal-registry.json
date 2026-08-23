@@ -1,0 +1,18 @@
+{
+  "project":"Universo Jesus Crypto",
+  "environment":"staging",
+  "indexing":"blocked",
+  "qr_editorial":false,
+  "portals":[
+    {"code":"P01","title":"Quem o sistema vê?","route":"/jesus-crypto/p01/","status":"teste","audio":"S01","audio_public":false,"blockers":["cópia pública S01","QA aparelho","URL final"]},
+    {"code":"P02","title":"Templo / reconhecimento","route":"/jesus-crypto/p02/","status":"teste","audio":"WebAudio local opcional","audio_public":true,"blockers":["QA aparelho","revisão editorial","URL final"]},
+    {"code":"P03","title":"Água que chegou tarde","route":"/jesus-crypto/p03/","status":"teste","audio":null,"audio_public":true,"blockers":["QA aparelho","revisão editorial","URL final"]},
+    {"code":"P04","title":"Trabalho sem trabalhadores","route":"/jesus-crypto/p04/","status":"teste","audio":null,"audio_public":true,"blockers":["QA aparelho","revisão editorial","URL final"]},
+    {"code":"P05","title":"Os não reconhecidos","route":"/jesus-crypto/p05/","status":"teste","audio":"S02","audio_public":false,"blockers":["cópia pública S02","QA aparelho","URL final"]},
+    {"code":"P06","title":"Saber que se espalha","route":"/jesus-crypto/p06/","status":"teste","audio":null,"audio_public":true,"blockers":["QA aparelho","revisão editorial","URL final"]},
+    {"code":"P07","title":"Da costa à guerra","route":"/jesus-crypto/p07/","status":"teste","audio":null,"audio_public":true,"blockers":["QA aparelho","revisão editorial","URL final"]},
+    {"code":"P08","title":"Onze minutos","route":"/jesus-crypto/p08/","status":"teste","audio":"S04","audio_public":false,"blockers":["cópia pública S04","QA aparelho","URL final"]},
+    {"code":"P09","title":"O Fórum","route":"/jesus-crypto/p09/","status":"teste","audio":"S09","audio_public":false,"blockers":["cópia pública S09","QA aparelho","URL final"]},
+    {"code":"P10","title":"Os vivos","route":"/jesus-crypto/p10/","status":"teste","audio":"S10","audio_public":false,"blockers":["cópia pública S10","QA aparelho","URL final"]}
+  ]
+}
