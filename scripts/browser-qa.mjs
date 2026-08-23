@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 
 const root = process.cwd();
-const outDir = path.join(root, 'qa-screenshots');
+const browserName = (process.env.JC_BROWSER || 'chromium').toLowerCase();
+const browserType = browserName === 'webkit' ? webkit : chromium;
+const outDir = path.join(root, `qa-screenshots-${browserName}`);
 fs.mkdirSync(outDir, { recursive: true });
 
 const mime = {
@@ -38,10 +40,11 @@ const base = 'http://127.0.0.1:4173';
 const routes = ['/', ...Array.from({ length: 10 }, (_, i) => `/jesus-crypto/p${String(i + 1).padStart(2, '0')}/`)];
 const devices = [
   { name: 'desktop', viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false },
-  { name: 'mobile', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }
+  { name: 'mobile390', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true },
+  { name: 'mobile320', viewport: { width: 320, height: 740 }, isMobile: true, hasTouch: true }
 ];
 
-const browser = await chromium.launch({ headless: true });
+const browser = await browserType.launch({ headless: true });
 const failures = [];
 const report = [];
 
@@ -85,7 +88,7 @@ for (const device of devices) {
       await page.screenshot({ path: path.join(outDir, `${slug}-${device.name}.png`), fullPage: true });
       if (pageErrors.length) failures.push(`${slug}/${device.name}: pageerror ${pageErrors.join(' | ')}`);
       if (consoleErrors.length) failures.push(`${slug}/${device.name}: console error ${consoleErrors.join(' | ')}`);
-      report.push({ route, device: device.name, title, h1Count, overflow, pageErrors, consoleErrors });
+      report.push({ browser: browserName, route, device: device.name, title, h1Count, overflow, pageErrors, consoleErrors });
     } catch (e) {
       failures.push(`${slug}/${device.name}: ${e.message}`);
     } finally {
@@ -96,13 +99,13 @@ for (const device of devices) {
 
 await browser.close();
 server.close();
-fs.writeFileSync(path.join(outDir, 'browser-qa-report.json'), JSON.stringify({ generated_at: new Date().toISOString(), report, failures }, null, 2));
+fs.writeFileSync(path.join(outDir, 'browser-qa-report.json'), JSON.stringify({ browser: browserName, generated_at: new Date().toISOString(), report, failures }, null, 2));
 
-console.log(`Browser QA pages checked: ${report.length}`);
-console.log(`Screenshots generated: ${report.length}`);
+console.log(`${browserName} QA pages checked: ${report.length}`);
+console.log(`${browserName} screenshots generated: ${report.length}`);
 if (failures.length) {
-  console.error(`Browser QA failures: ${failures.length}`);
+  console.error(`${browserName} QA failures: ${failures.length}`);
   for (const f of failures) console.error(`ERR ${f}`);
   process.exit(1);
 }
-console.log('PASS — Chromium desktop/mobile staging QA');
+console.log(`PASS — ${browserName} desktop/mobile staging QA`);
