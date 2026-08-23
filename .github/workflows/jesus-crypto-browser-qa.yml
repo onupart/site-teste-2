@@ -12,7 +12,11 @@ permissions:
 jobs:
   browser-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,14 +27,16 @@ jobs:
       - name: Install Playwright
         run: |
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
-      - name: Run Chromium desktop/mobile QA
+          npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Run browser desktop/mobile QA
+        env:
+          JC_BROWSER: ${{ matrix.browser }}
         run: node scripts/browser-qa.mjs
       - name: Upload QA screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: jesus-crypto-browser-qa-screenshots
-          path: qa-screenshots
+          name: jesus-crypto-${{ matrix.browser }}-qa-screenshots
+          path: qa-screenshots-${{ matrix.browser }}
           if-no-files-found: warn
           retention-days: 14
