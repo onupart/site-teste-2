@@ -1,0 +1,46 @@
+{
+  "project": "Universo Jesus Crypto",
+  "status": "prepared_for_hosting",
+  "generated": "2026-08-23",
+  "encoding": "MP3 CBR 128 kbps, 48 kHz, stereo, no embedded cover art",
+  "source_masters": "private_and_unchanged",
+  "files": [
+    {
+      "bridge": "P01-S01",
+      "file": "p01/assets/s01-ranking-nao-mede-sangue.mp3",
+      "duration_seconds": 235.032,
+      "bytes": 3761009,
+      "sha256": "88e2f63dc6455bcdab2a7d0023e5711afb461aa2387f792a5a84caf5e9593dbc"
+    },
+    {
+      "bridge": "P05-S02",
+      "file": "p05/assets/s02-sistema-nao-responde-consciencia.mp3",
+      "duration_seconds": 225.024,
+      "bytes": 3600894,
+      "sha256": "9aea3350711e1b8dfa88443ae43332ee6d5eb8b989e5e5dcd3ce070ea8dbc8c1"
+    },
+    {
+      "bridge": "P08-S04",
+      "file": "p08/assets/s04-respirar.mp3",
+      "duration_seconds": 245.52,
+      "bytes": 3928801,
+      "sha256": "2d2fa71d83105660771c08efc213424b8e7a88975837cff629f6788279e09596"
+    },
+    {
+      "bridge": "P09-S09",
+      "file": "p09/assets/s09-movimento.mp3",
+      "duration_seconds": 306.744,
+      "bytes": 4908387,
+      "sha256": "100547778f5b7521329621bae5cd9d189530e638bbf3d752de9bdd2d007717e3"
+    },
+    {
+      "bridge": "P10-S10",
+      "file": "p10/assets/s10-pela-frente.mp3",
+      "duration_seconds": 283.32,
+      "bytes": 4533604,
+      "sha256": "8c76a3ffbfeff2612417eb52ca02d082441ecb2ffa103b7eef505f91083bdbc5"
+    }
+  ],
+  "hosting_gate": "pending_vercel_or_equivalent_public_asset_hosting",
+  "public_asset_ready": false
+}
