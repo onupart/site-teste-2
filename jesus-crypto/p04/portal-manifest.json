@@ -1,0 +1,15 @@
+{
+  "project":"Universo Jesus Crypto",
+  "portal":"P04",
+  "title":"Trabalho sem trabalhadores",
+  "version":"staging-v01",
+  "status":"teste",
+  "updated":"2026-08-23",
+  "route":"/jesus-crypto/p04/",
+  "canonical_brief":"PORTAIS P02–P10 — BRIEFS DE PRODUÇÃO v01",
+  "function":"expor a contradição entre eficiência logística e memória do trabalho humano",
+  "mvp":["porto automatizado","cadeia industrial","corpo ausente","documento de capacidade/competência sem titular reconhecido"],
+  "audio_required":false,
+  "privacy":{"personal_data_collection":false,"cookies":false,"analytics":false,"staging_noindex":true},
+  "qr":{"editorial_qr_ready":false,"stable_url_required":true}
+}
