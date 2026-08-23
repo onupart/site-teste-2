@@ -1,0 +1,12 @@
+{
+  "code":"P07",
+  "title":"Da costa à guerra",
+  "version":"staging-v01",
+  "status":"teste",
+  "route":"/jesus-crypto/p07/",
+  "canonical_rule":"usar fluxo territorial conceitual; não apresentar rotas, minas ou conflitos ficcionais como dados reais",
+  "audio":{"external_dependency":false},
+  "privacy":{"personal_data":false,"analytics":false,"login":false},
+  "publication":{"indexing":"blocked","url_frozen":false,"qr_editorial":false},
+  "blockers":["QA em aparelho real","revisão editorial","URL pública permanente"]
+}
